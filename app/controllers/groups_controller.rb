@@ -37,7 +37,7 @@ def update
 end
 
 def destroy
-  
+
   @group.destroy
   flash[:alert] = "Group deleted"
   redirect_to groups_path
@@ -46,8 +46,9 @@ end
  private
 
  def find_group_add_check_permission
-   @group = Group.find(params[:id]
-   if current_user != @garoup.user
+   @group = Group.find(params[:id])
+
+   if current_user != @group.user
      redirect_to root_path, alert: "You have no permission."
    end
  end
